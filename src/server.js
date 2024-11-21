@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 import { getContacts, getContactsById } from './services/contacts.js';
 
 dotenv.config();
-const PORT = Number(process.env.PORT);
+const PORT = process.env.PORT; 
 
 export const setupServer = () => {
   const app = express();
@@ -15,7 +15,7 @@ export const setupServer = () => {
       transport: {
         target: 'pino-pretty',
       },
-    }),
+    }),  
   );
 
   app.get('/contacts', async (req, res) => {
@@ -54,4 +54,4 @@ export const setupServer = () => {
   app.listen(PORT, () => {
     console.log(`Server is running on ${PORT}`);
   });
-};
+}; 
